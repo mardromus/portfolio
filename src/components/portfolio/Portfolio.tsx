@@ -9,7 +9,7 @@ const NAV = [
 ];
 
 const MARQUEE = [
-  "4 PUBLICATIONS",
+  "3 PUBLICATIONS",
   "IEEE XPLORE",
   "MICROSOFT COPILOT CHAMPION",
   "HACKFEST RUNNER-UP",
@@ -187,7 +187,7 @@ function Hero() {
           <div className="brutal-border brutal-shadow-hot relative bg-bone p-3">
             <img src="/photo.jpg" alt="Kushagra Goyal" className="aspect-square w-full object-cover grayscale contrast-125" />
             <div className="mt-2 flex items-center justify-between border-t-2 border-ink pt-2 text-[10px] font-bold uppercase tracking-widest">
-              <span>ID // KG-2003</span>
+              <span>ID // mardormus</span>
               <span className="bg-ink px-1 text-bone">REC</span>
             </div>
           </div>
@@ -357,9 +357,8 @@ function Wins() {
           {HONORS.map((h, i) => (
             <li
               key={h.rank}
-              className={`grid grid-cols-[80px_1fr_auto] items-center gap-4 border-ink px-4 py-5 md:grid-cols-[120px_1fr_auto] md:gap-6 md:px-8 md:py-7 ${
-                i > 0 ? "border-t-2" : ""
-              } hover:bg-mustard`}
+              className={`grid grid-cols-[80px_1fr_auto] items-center gap-4 border-ink px-4 py-5 md:grid-cols-[120px_1fr_auto] md:gap-6 md:px-8 md:py-7 ${i > 0 ? "border-t-2" : ""
+                } hover:bg-mustard`}
             >
               <span className="font-display text-4xl md:text-6xl">{h.rank}</span>
               <div>
