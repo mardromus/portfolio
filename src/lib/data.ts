@@ -37,7 +37,7 @@ export const PUBLICATIONS: Publication[] = [
       "Novel noise-resilient cost-function formulation.",
       "Empirical validation on actual NISQ processors showing improved classification convergence."
     ],
-    link: "https://ieeexplore.ieee.org/",
+    link: "https://doi.org/10.1109/AIMLSystems67835.2025.11331164",
     images: ["/nisq1.jpeg", "/nisq2.jpeg"]
   },
   {
