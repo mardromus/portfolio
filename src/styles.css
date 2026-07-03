@@ -1,0 +1,135 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-ink: var(--ink);
+  --color-bone: var(--bone);
+  --color-hot: var(--hot);
+  --color-cobalt: var(--cobalt);
+  --color-mustard: var(--mustard);
+  --color-lime: var(--lime);
+  --font-display: "Archivo Black", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Space Mono", monospace;
+  --font-sans: "Space Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 0px;
+  --bone: oklch(0.96 0.015 85);
+  --ink: oklch(0.16 0.01 0);
+  --hot: oklch(0.66 0.24 28);
+  --cobalt: oklch(0.48 0.24 265);
+  --mustard: oklch(0.85 0.17 90);
+  --lime: oklch(0.88 0.22 128);
+
+  --background: var(--bone);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--bone);
+  --secondary: var(--mustard);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.92 0.01 85);
+  --muted-foreground: oklch(0.4 0.02 0);
+  --accent: var(--hot);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.55 0.24 28);
+  --destructive-foreground: oklch(1 0 0);
+  --border: var(--ink);
+  --input: var(--ink);
+  --ring: var(--ink);
+}
+
+.dark {
+  --background: var(--ink);
+  --foreground: var(--bone);
+}
+
+@utility brutal-border {
+  border: 3px solid var(--ink);
+}
+@utility brutal-shadow {
+  box-shadow: 8px 8px 0 0 var(--ink);
+}
+@utility brutal-shadow-sm {
+  box-shadow: 4px 4px 0 0 var(--ink);
+}
+@utility brutal-shadow-hot {
+  box-shadow: 8px 8px 0 0 var(--hot);
+}
+@utility brutal-shadow-cobalt {
+  box-shadow: 8px 8px 0 0 var(--cobalt);
+}
+@utility hover-snap {
+  transition: transform 100ms steps(2, end), box-shadow 100ms steps(2, end);
+  &:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 0 var(--ink);
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@utility animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    background-color: var(--bone);
+    color: var(--ink);
+    font-family: var(--font-mono);
+  }
+  body {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--ink) 6%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--ink) 6%, transparent) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background: var(--hot);
+    color: white;
+  }
+}
