@@ -1,6 +1,4 @@
 import { Github, Linkedin, Mail, Phone, ArrowUpRight, FileDown, MapPin, Asterisk } from "lucide-react";
-import headshot from "@/assets/kushagra.jpg.asset.json";
-import resume from "@/assets/Kushagra_Resume.pdf.asset.json";
 
 const NAV = [
   { href: "#work", label: "WORK" },
@@ -136,7 +134,7 @@ function Nav() {
           ))}
         </nav>
         <a
-          href={resume.url}
+          href="/Kushagra_Resume.pdf"
           target="_blank"
           rel="noopener"
           className="brutal-border brutal-shadow-sm hover-snap inline-flex items-center gap-2 bg-hot px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-white"
@@ -187,7 +185,7 @@ function Hero() {
 
         <div className="relative">
           <div className="brutal-border brutal-shadow-hot relative bg-bone p-3">
-            <img src={headshot.url} alt="Kushagra Goyal" className="aspect-square w-full object-cover grayscale contrast-125" />
+            <img src="/photo.jpg" alt="Kushagra Goyal" className="aspect-square w-full object-cover grayscale contrast-125" />
             <div className="mt-2 flex items-center justify-between border-t-2 border-ink pt-2 text-[10px] font-bold uppercase tracking-widest">
               <span>ID // KG-2003</span>
               <span className="bg-ink px-1 text-bone">REC</span>
