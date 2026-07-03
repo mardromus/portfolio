@@ -9,6 +9,7 @@ export interface Publication {
   methodology: string;
   contributions: string[];
   link?: string;
+  images?: string[];
 }
 
 export interface Project {
@@ -36,7 +37,8 @@ export const PUBLICATIONS: Publication[] = [
       "Novel noise-resilient cost-function formulation.",
       "Empirical validation on actual NISQ processors showing improved classification convergence."
     ],
-    link: "https://ieeexplore.ieee.org/"
+    link: "https://ieeexplore.ieee.org/",
+    images: ["/nisq1.jpeg", "/nisq2.jpeg"]
   },
   {
     slug: "pqc-quic-telemetry",

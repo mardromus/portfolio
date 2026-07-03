@@ -132,6 +132,32 @@ function PaperDetail() {
                 {paper.methodology}
               </p>
             </div>
+
+            {/* Visualizations / Figures */}
+            {paper.images && paper.images.length > 0 && (
+              <div className="brutal-border brutal-shadow-sm bg-card p-6 md:p-8">
+                <h2 className="font-display text-2xl mb-6 border-b-2 border-dashed border-ink pb-2 text-hot">
+                  FIGURES & VISUALIZATIONS.
+                </h2>
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  {paper.images.map((img, idx) => (
+                    <div key={idx} className="brutal-border bg-bone p-3 group overflow-hidden">
+                      <div className="overflow-hidden border-2 border-ink bg-white">
+                        <img 
+                          src={img} 
+                          alt={`Visualization ${idx + 1}`} 
+                          className="w-full object-contain grayscale hover:grayscale-0 transition-all duration-300 transform group-hover:scale-[1.03]" 
+                        />
+                      </div>
+                      <div className="mt-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground flex justify-between">
+                        <span>Figure {idx + 1}</span>
+                        <span className="bg-ink px-1.5 py-0.5 text-bone">NISQ ARCHIVE</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </main>
