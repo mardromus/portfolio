@@ -117,7 +117,7 @@ function Hero() {
             <span>·</span>
             <span>B.TECH CSE · 2023–2027</span>
             <span>·</span>
-            <span>4× PUBLISHED</span>
+            <span>3× PUBLISHED</span>
           </div>
         </div>
 
