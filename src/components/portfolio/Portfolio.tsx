@@ -1,4 +1,6 @@
 import { Github, Linkedin, Mail, Phone, ArrowUpRight, FileDown, MapPin, Asterisk } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { PUBLICATIONS, PROJECTS } from "@/lib/data";
 
 const NAV = [
   { href: "#work", label: "WORK" },
@@ -19,70 +21,6 @@ const MARQUEE = [
   "QUANTUM ML",
   "OPEN TO INTERNSHIPS",
   "HIRE FOR AI / ML",
-];
-
-const PUBLICATIONS = [
-  {
-    venue: "AIMLSystems 2025 · IEEE Xplore",
-    title: "Adaptive Quantum-Enhanced Learning (NISQ Era)",
-    blurb: "Hybrid framework for robust QML; presented at the 5th Intl. Conf. on AI-ML-Systems.",
-    status: "PUBLISHED",
-    color: "bg-hot text-white",
-  },
-  {
-    venue: "SCI 2026",
-    title: "Adaptive PQC Key-Encapsulation for Multipath QUIC Telemetry",
-    blurb: "Quantum-resilient multipath QUIC with learning-based routing and adaptive FEC.",
-    status: "ACCEPTED",
-    color: "bg-cobalt text-white",
-  },
-  {
-    venue: "SCI 2026",
-    title: "LLM-Based Courtroom Simulation for Indian Civil Law",
-    blurb: "Multi-agent RAG framework using the Indian Kanoon corpus for adversarial legal proceedings.",
-    status: "ACCEPTED",
-    color: "bg-cobalt text-white",
-  },
-  {
-    venue: "Preprint",
-    title: "Neural Ricci Flow: Curvature-Constrained SSL Regularizer",
-    blurb: "Sinkhorn OT regularizer prevents manifold collapse. +5.2% accuracy at low overhead.",
-    status: "UNDER REVIEW",
-    color: "bg-mustard text-ink",
-  },
-];
-
-const PROJECTS = [
-  {
-    title: "Medical-to-Medical Image Generation",
-    org: "Research · Jan 2026 – Present",
-    stack: ["GANs", "PyTorch", "Diffusion"],
-    body: "High-fidelity medical modality translation using generative deep learning.",
-  },
-  {
-    title: "Simple Operator",
-    org: "Rust · LZ4 · Nov–Dec 2025",
-    stack: ["Rust", "PQC", "LZ4", "CRC32"],
-    body: "Async transfer pipeline. +30% throughput, +40% reliability, 20–25% smaller secure payloads.",
-  },
-  {
-    title: "MedDo",
-    org: "Python · Pinecone · Aug–Oct 2025",
-    stack: ["Pinecone", "RAG", "Python"],
-    body: "LeetCode-style USMLE platform. 1,000+ cases, ~35% cut to prep time via adaptive feedback.",
-  },
-  {
-    title: "Lex Orion",
-    org: "LangGraph · RAG · Jan–Apr 2025",
-    stack: ["LangGraph", "Agents", "RAG"],
-    body: "Agentic AI courtroom: judge & lawyer roles automate argument extraction from 300+ case files.",
-  },
-  {
-    title: "AURA 1.0",
-    org: "IoT · Aug 2024",
-    stack: ["RL", "DHT11", "MQ135"],
-    body: "IoT risk analyzer with reinforcement learning across five environmental sensors.",
-  },
 ];
 
 const HONORS = [
@@ -293,18 +231,28 @@ function Research() {
         <SectionHeader tag="02 // RESEARCH" title="PAPERS & PROOFS." />
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {PUBLICATIONS.map((p, i) => (
-            <article key={i} className="brutal-border brutal-shadow-sm hover-snap group flex flex-col bg-card p-6">
-              <div className="mb-4 flex items-center justify-between text-xs font-bold uppercase tracking-widest">
-                <span className="border-2 border-ink bg-bone px-2 py-0.5">{p.venue}</span>
-                <span className={`border-2 border-ink px-2 py-0.5 ${p.color}`}>{p.status}</span>
-              </div>
-              <h3 className="font-display text-2xl leading-tight md:text-3xl">{p.title}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed">{p.blurb}</p>
-              <div className="mt-6 flex items-center justify-between border-t-2 border-dashed border-ink pt-3 text-xs font-bold uppercase tracking-widest">
-                <span>PAPER #{String(i + 1).padStart(2, "0")}</span>
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </div>
-            </article>
+            <Link
+              key={i}
+              to="/papers/$paperId"
+              params={{ paperId: p.slug }}
+              className="brutal-border brutal-shadow-sm hover-snap group flex flex-col bg-card p-6 text-ink hover:bg-bone transition-colors"
+            >
+              <article className="flex flex-col h-full">
+                <div className="mb-4 flex items-center justify-between text-xs font-bold uppercase tracking-widest">
+                  <span className="border-2 border-ink bg-bone px-2 py-0.5">{p.venue}</span>
+                  <span className={`border-2 border-ink px-2 py-0.5 ${p.color}`}>{p.status}</span>
+                </div>
+                <h3 className="font-display text-2xl leading-tight md:text-3xl">{p.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed">{p.blurb}</p>
+                <div className="mt-6 flex items-center justify-between border-t-2 border-dashed border-ink pt-3 text-xs font-bold uppercase tracking-widest">
+                  <span>PAPER #{String(i + 1).padStart(2, "0")}</span>
+                  <span className="flex items-center gap-1 text-hot">
+                    READ DETAILS
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </div>
@@ -325,22 +273,38 @@ function Work() {
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((p, i) => (
-            <article key={i} className="border-[3px] border-white bg-bone p-6 text-ink" style={{ boxShadow: "8px 8px 0 0 #0a0a0a" }}>
-              <div className="mb-4 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest">
-                <span>PROJ / {String(i + 1).padStart(2, "0")}</span>
-                <span className="bg-ink px-2 py-0.5 text-bone">LIVE</span>
-              </div>
-              <h3 className="font-display text-2xl leading-tight">{p.title}</h3>
-              <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{p.org}</div>
-              <p className="mt-4 text-sm">{p.body}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {p.stack.map((s) => (
-                  <span key={s} className="border-2 border-ink bg-mustard px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest">
-                    {s}
-                  </span>
-                ))}
-              </div>
-            </article>
+            <Link
+              key={i}
+              to="/projects/$projectId"
+              params={{ projectId: p.slug }}
+              className="border-[3px] border-white bg-bone p-6 text-ink hover:bg-bone/90 transition-colors flex flex-col justify-between"
+              style={{ boxShadow: "8px 8px 0 0 #0a0a0a" }}
+            >
+              <article className="flex flex-col h-full justify-between w-full">
+                <div>
+                  <div className="mb-4 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest border-b border-ink pb-2">
+                    <span>PROJ / {String(i + 1).padStart(2, "0")}</span>
+                    <span className="bg-ink px-2 py-0.5 text-bone">DETAILS</span>
+                  </div>
+                  <h3 className="font-display text-2xl leading-tight">{p.title}</h3>
+                  <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{p.org}</div>
+                  <p className="mt-4 text-sm">{p.body}</p>
+                </div>
+                <div className="mt-5">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {p.stack.map((s) => (
+                      <span key={s} className="border-2 border-ink bg-mustard px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="border-t border-ink pt-3 flex items-center justify-between text-xs font-bold uppercase tracking-widest text-ink">
+                    <span>VIEW CASE STUDY</span>
+                    <ArrowUpRight className="h-4 w-4" />
+                  </div>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </div>
