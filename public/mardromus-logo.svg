@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Mardromus logo</title>
+  <desc id="desc">A bold brutalist Mardromus monogram logo.</desc>
+  <rect width="1024" height="1024" fill="#f5f0df"/>
+  <path d="M70 70h884v884H70z" fill="#f5f0df" stroke="#1f1f1f" stroke-width="36"/>
+  <path d="M152 146h720v732H152z" fill="#2454d6" stroke="#1f1f1f" stroke-width="24"/>
+  <path d="M202 194h620v628H202z" fill="#f5f0df" stroke="#1f1f1f" stroke-width="20"/>
+  <path d="M252 686V330h102l160 184 158-184h100v356H652V506L524 654h-24L372 506v180H252z" fill="#1f1f1f"/>
+  <path d="M780 236l86 86-86 86-86-86z" fill="#ff4f2f" stroke="#1f1f1f" stroke-width="18"/>
+  <path d="M158 744l104-104 104 104-104 104z" fill="#f0c92f" stroke="#1f1f1f" stroke-width="18"/>
+  <path d="M226 248h116v36H226zM226 300h212v36H226zM586 740h212v36H586zM682 792h116v36H682z" fill="#1f1f1f"/>
+  <text x="512" y="914" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="76" font-weight="900" letter-spacing="6" fill="#1f1f1f">MARDROMUS</text>
+</svg>

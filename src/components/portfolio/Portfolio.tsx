@@ -123,9 +123,9 @@ function Hero() {
 
         <div className="relative">
           <div className="brutal-border brutal-shadow-hot relative bg-bone p-3">
-            <img src="/photo.jpg" alt="Kushagra Goyal" className="aspect-square w-full object-cover grayscale contrast-125" />
+            <img src="/mardromus-logo.svg" alt="Mardromus logo" className="aspect-square w-full bg-bone object-contain" />
             <div className="mt-2 flex items-center justify-between border-t-2 border-ink pt-2 text-[10px] font-bold uppercase tracking-widest">
-              <span>ID // mardormus</span>
+              <span>ID // mardromus</span>
               <span className="bg-ink px-1 text-bone">REC</span>
             </div>
           </div>
